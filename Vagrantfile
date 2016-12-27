@@ -1,6 +1,10 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/trusty64"
 
+  config.push.define "heroku" do |push|
+    push.app = "heroku-vagrant"
+  end
+
   # config.vm.provision "file", source: "./utils", destination: "utils"
   
   config.vm.network "forwarded_port", guest: 9515, host: 9515
